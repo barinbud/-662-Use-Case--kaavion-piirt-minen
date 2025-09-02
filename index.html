@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Äänestys</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Äänestysjärjestelmä</h1>
+  </header>
+  <main>
+    <div id="role-switch" class="hidden">
+      <button id="switch-role" class="all-buttons">Vaihda rooli (nyt: käyttäjä)</button>
+    </div>
+    <section id="auth">
+      <div id="login-form">
+        <h2>Kirjaudu</h2>
+        <input id="login-user" type="text" placeholder="Käyttäjänimi">
+        <input id="login-pass" type="password" placeholder="Salasana" style="width:85%;display:inline-block;">
+        <span id="show-pass" style="cursor:pointer;vertical-align:middle;" title="Näytä salasana">&#128065;</span>
+        <div>
+          <label><input type="radio" name="role" value="Normal User" checked> Käyttäjä</label>
+          <label><input type="radio" name="role" value="Moderator"> Admin</label>
+        </div>
+        <button id="login-btn">Kirjaudu</button>
+      </div>
+      <div id="login-hint">
+        <span>?</span>
+        <div id="hint-popup" class="hidden">
+          <b>Käyttäjä:</b> Matti123<br>
+          <b>Salasana:</b> OlenParas2<br>
+          <b>Admin:</b> Teppo123<br>
+          <b>Salasana:</b> OikeastiVai4
+        </div>
+      </div>
+    </section>
+    <section id="admin" class="hidden">
+      <h2>Admin-paneeli</h2>
+      <form id="create-poll-form">
+        <input type="text" id="poll-name" placeholder="Äänestyksen nimi" required>
+        <input type="text" id="poll-desc-input" placeholder="Kuvaus" required>
+        <input type="text" id="option1" placeholder="Vaihtoehto 1 (esim. kyllä)" required>
+        <input type="text" id="option2" placeholder="Vaihtoehto 2 (esim. ei)" required>
+        <button type="submit" class="all-buttons">Luo äänestys</button>
+      </form>
+      <form id="delete-poll-form">
+        <select id="delete-poll-select"></select>
+        <button type="submit" class="all-buttons">Poista äänestys</button>
+      </form>
+    </section>
+    <section id="polls" class="hidden">
+      <h2>Äänestykset</h2>
+      <ul id="poll-list"></ul>
+    </section>
+    <section id="poll-view" class="hidden">
+      <h2>Äänestyksen tiedot</h2>
+      <p id="poll-desc"></p>
+      <div>
+        <button id="vote-yes">Puolesta</button>
+        <button id="vote-no">Vastaan</button>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
